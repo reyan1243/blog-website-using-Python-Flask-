@@ -1,0 +1,60 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='form.css') }}">
+
+    {% if title %}
+    <title>{{title}} - page</title>
+    {%else%}
+    <title>Home - page</title>
+    {% endif %}
+
+</head>
+<body>
+
+  <nav class="nav_container">
+        <div class="logo">Flask-Register</div>
+        <ul>
+<!--            <li class="menu"><a>Home</a></li>-->
+<!--            <li class="menu"><a>Services</a></li>-->
+            <li class="menu"><a>Login</a></li>
+<!--            <li class="menu"><a>Create-New-Account</a></li>-->
+        </ul>
+    </nav>
+
+
+
+<div class="container">
+
+    <form action="" method="post" novalidate>
+            {{ form.hidden_tag() }}
+            <p>
+                {{ form.email.label }}<br>
+                {{ form.email(size=32, id="box") }}
+            </p>
+
+            <p>
+                {{ form.user.label }}<br>
+                {{ form.user(size=32,id="box") }}
+            </p>
+            <p>
+                {{ form.password.label }}<br>
+                {{ form.password(size=32,id="box") }}
+            </p>
+
+            <p>
+                {{ form.confirm_password.label }}<br>
+                {{ form.confirm_password(size=32,id="box") }}
+            </p>
+
+            <p>{{ form.remember() }}
+                {{ form.remember.label }}
+            </p>
+            <p id="btn">
+                {{ form.submit(id="btn") }}
+            </p>
+        </form>
+    </div>
+</body>
